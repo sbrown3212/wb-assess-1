@@ -24,7 +24,17 @@ function commonStrings(array1, array2) {
 // Ex.:
 //   divisibleByEither(50, 30, 29);
 //   => [29, 30, 50, 58, 60, 87, 90, 100]
-function divisibleByEither(a, b, c) {}
+function divisibleByEither(a, b, c) {
+  const divisibleArr = [];
+  for (let i = 1; i < 101; i++) {
+    if (i % a === 0 || i % b === 0 || i % c === 0) {
+      divisibleArr.push(i);
+    }
+  }
+  return divisibleArr;
+}
+
+// console.log(divisibleByEither(50, 30, 29));
 
 // Compress a string using the rules below and return the result. To compress a
 // string, replace consecutive duplicate characters with a number and the
@@ -38,6 +48,28 @@ function divisibleByEither(a, b, c) {}
 //   => '4s2b'
 //   compressString('ssssbbba');
 //   => '4s3ba'
-function compressString(string) {}
+function compressString(string) {
+  let newStr = ``;
+  let count = 1;
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] === string[i + 1]) {
+      // Increase count if letters are repeating
+      count += 1;
+    } else if (string[i] !== string[i + 1] && count <= 1) {
+      // If no repeating letters, add current letter to newStr
+      newStr += string[i];
+    } else if (string[i] !== string[i + 1] && count > 1) {
+      // Once repetion of letters stops, add the number of repeating letters followed by the repeating letter to newStr (and restart count)
+      newStr += count;
+      newStr += string[i];
+      count = 1; 
+    }
+  }
+  return newStr;
+}
+
+// console.log(compressString('aaa'));
+// console.log(compressString('ssssbb'));
+// console.log(compressString('ssssbbba'));
 
 export { commonStrings, compressString, divisibleByEither };
