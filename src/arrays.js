@@ -95,6 +95,7 @@ function smallestNItems(items, n) {
   const smallestArr = [];
 
   // Sort items array
+  // Compare items[i] to the subsequent items. If another item is less than items[i], swap items.
   for (let i = 0; i < items.length - 1; i++) {
     let indexOfSmallest = i;
     for (let j = i + 1; j < items.length; j++) {
@@ -109,10 +110,12 @@ function smallestNItems(items, n) {
     }
   }
   
+  // Get n number of items from sorted items array starting with items[n - 1] and ending with items[0]
   for (let i = n - 1; i >= 0; i--) {
     smallestArr.push(items[i]);
   }
-   return smallestArr;
+  
+  return smallestArr;
 }
 
 // smallestNItems([1, 30, 4, 21, 100000], 3);
