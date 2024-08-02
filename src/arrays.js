@@ -43,7 +43,19 @@ function extend(originalArray, additionalItems) {
 // Ex.:
 //   itemsWithLength(['a', 'bbb', 'cccc', 'dddddd', 'eee'], 3);
 //   => ['bbb', 'eee']
-function itemsWithLength(items, length) {}
+function itemsWithLength(items, length) {
+  const newArray = [];
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].length === length) {
+      newArray.push(items[i]);
+    }
+  }
+  return newArray;
+}
+
+// console.log(itemsWithLength(['a', 'bbb', 'cccc', 'dddddd', 'eee'], 3));
+// console.log(itemsWithLength(['a', 'b', 'c', 'd', 'e'], 1));
+
 
 // Return an array with every other element from the input array (start with index 0).
 // Ex.:
