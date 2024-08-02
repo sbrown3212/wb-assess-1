@@ -31,7 +31,13 @@ function bWords(words) {
 // Ex.:
 //  extend([1, 2, 3], [4, 5, 6]);
 //  => [1, 2, 3, 4, 5, 6]
-function extend(originalArray, additionalItems) {}
+function extend(originalArray, additionalItems) {
+  const newArray = originalArray;
+  for (let i = 0; i < additionalItems.length; i++) {
+    newArray.push(additionalItems[i]);
+  }
+  return newArray;
+}
 
 // Return an array of all items with the given length.
 // Ex.:
