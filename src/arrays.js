@@ -132,7 +132,9 @@ function smallestNItems(items, n) {
 //   findIndex(['a', 'b', 'c', 'a', 'b', 'c'], 'c');
 //   => 2
 function findIndex(items, value) {
-
+  if (items.indexOf(value) !== -1) {
+    return items.indexOf(value);
+  }
 }
 
 // Given a start number and stop number, return a new array containing all the numbers
