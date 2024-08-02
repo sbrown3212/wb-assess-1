@@ -46,7 +46,18 @@ function generateSentence(person, beverage, location) {
 // Ex.:
 //   censorVowels('javascript');
 //   => 'j*v*scr*pt'
-function censorVowels(string) {}
+function censorVowels(string) {
+  const vowels = `aeiou`;
+  let newStr = ``;
+  for (let i = 0; i < string.length; i++) {
+    if (vowels.includes(string[i])) {
+      newStr += `*`;
+    } else {
+      newStr += string[i];
+    }
+  }
+  return newStr;
+}
 
 // Return the given string in sticky case.
 // Ex.:
