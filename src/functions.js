@@ -87,7 +87,27 @@ function stickyCase(string) {
 // Ex.:
 //   leetspeak('javascript');
 //   => 'j4v45cr1p7'
-function leetspeak(string) {}
+function leetspeak(string) {
+  let newStr = ``;
+  for (let i = 0; i < string.length; i++) {
+    if (string[i].toLowerCase() === `a`) {
+      newStr += `4`;
+    } else if (string[i].toLowerCase() === `e`) {
+      newStr += `3`;
+    } else if (string[i].toLowerCase() === `i`) {
+      newStr += `1`;
+    } else if (string[i].toLowerCase() === `o`) {
+      newStr += `0`;
+    } else if (string[i].toLowerCase() === `s`) {
+      newStr += `5`;
+    } else if (string[i].toLowerCase() === `t`) {
+      newStr += `7`;
+    } else {
+      newStr += string[i];
+    }
+  }
+  return newStr;
+}
 
 export {
   approximatelyEqual,
