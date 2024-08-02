@@ -91,7 +91,36 @@ function findWordsStartingWith(words, letter) {
 // Ex.:
 //   smallestNItems([1, 30, 4, 21, 100000], 3);
 //   => [21, 4, 1]
-function smallestNItems(items, n) {}
+function smallestNItems(items, n) {
+  const smallestArr = [];
+
+  // Sort items array
+  for (let i = 0; i < items.length - 1; i++) {
+    let indexOfSmallest = i;
+    for (let j = i + 1; j < items.length; j++) {
+      if (items[j] < items[indexOfSmallest]) {
+        indexOfSmallest = j;
+      }
+    }
+    if(items[indexOfSmallest] < items[i]) {
+      const temp = items[i];
+      items[i] = items[indexOfSmallest];
+      items[indexOfSmallest] = temp;
+    }
+  }
+  
+  for (let i = n - 1; i >= 0; i--) {
+    smallestArr.push(items[i]);
+  }
+   return smallestArr;
+}
+
+// smallestNItems([1, 30, 4, 21, 100000], 3);
+
+// I feel like I totally over complicated this.
+// Was there something we learned in lecture/lab that would have made this easier or less complicated?
+
+
 
 // Search for a value in the array and return its index. If the value appears
 // more than once, return the index of the *FIRST* occurrence of the value. If
@@ -99,7 +128,9 @@ function smallestNItems(items, n) {}
 // Ex.:
 //   findIndex(['a', 'b', 'c', 'a', 'b', 'c'], 'c');
 //   => 2
-function findIndex(items, value) {}
+function findIndex(items, value) {
+
+}
 
 // Given a start number and stop number, return a new array containing all the numbers
 // between the start and stop number.
